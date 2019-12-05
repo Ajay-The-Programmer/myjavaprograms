@@ -1,0 +1,56 @@
+// pro5- Accept the names of three files and copy the contents of the first two to the third
+
+package ass2pro1;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.Serializable;
+
+
+public class MainFileDataCopy {
+
+
+
+	public static void main(String[] args) {
+	FileReader file1=null;
+	FileReader file2=null;
+	FileWriter file3=null;
+	
+	try { 
+			file1=new FileReader("/home/ajaydevkar/FileHandling/Stud.dat");
+			file2=new FileReader("/home/ajaydevkar/FileHandling/Clg.txt");
+			file3=new FileWriter("/home/ajaydevkar/FileHandling/SCinfo.txt");
+		
+		
+			int data2;
+			while((data2=file1.read())!=-1) {
+				System.out.print((char)data2);
+			}
+			int data;
+			while((data=file1.read())!=-1) {
+			file3.write(data);
+			System.out.println("Filecopied");
+			
+		}
+		
+	}catch(Exception e) {
+		System.out.println(e.toString());
+		
+	}finally {
+		try {
+			if(file1!=null) {
+				file1.close();
+			}
+			if(file2!=null) {
+				file2.close();
+			}
+			 if(file3!=null) {
+				file3.close();
+			}
+		}catch(Exception e) {
+			System.out.println(e.toString());
+		}
+	}
+}
+}
+

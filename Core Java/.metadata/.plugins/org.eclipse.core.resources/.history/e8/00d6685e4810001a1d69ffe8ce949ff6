@@ -1,0 +1,40 @@
+//9.Write a program to display the contents of a file in the reverse order. 
+
+package ass2pro1;
+
+import java.io.FileReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class MainReverseOrder {
+
+	public static void main(String[] args) throws IOException {
+		
+		try( FileInputStream file1=new FileInputStream("/home/ajaydevkar/FileHandling/reverse.txt");){
+				
+				int data;
+				for(int i=0;(data=file1.read())>=-1;i++) {
+					System.out.print((char)data);
+					
+				}
+				System.out.println(data);
+					
+					
+					
+//					
+//				}while((data=file1.read())!=0);
+//					
+//					
+				
+					
+				}catch(Exception e) {
+				
+					System.out.println(e.toString());
+					e.printStackTrace();
+				{ 
+		
+				}}}}
+	 
+
+	
+

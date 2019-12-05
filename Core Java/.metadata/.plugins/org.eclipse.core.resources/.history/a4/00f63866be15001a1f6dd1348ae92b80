@@ -1,0 +1,27 @@
+package Temperary;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		A obj=new B();
+	}
+
+}
+class A {
+	int a;
+
+	public A() {
+		System.out.println("base class");
+		
+	}
+	
+	
+}
+class B{
+	int a;
+
+	public B() {
+		System.out.println("derived");
+	}
+	
+}

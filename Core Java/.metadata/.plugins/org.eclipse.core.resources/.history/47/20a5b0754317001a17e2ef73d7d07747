@@ -1,0 +1,10 @@
+package collectiontest;
+
+public class Map {
+
+	public static void main(String[] args) {
+		Map<Integer,String> map=new Map<>();
+		
+	}
+
+}

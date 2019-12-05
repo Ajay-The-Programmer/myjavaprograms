@@ -1,0 +1,21 @@
+package multithreading;
+
+public class MainThreadPro {
+	public static void main(String args[]) {
+		
+		
+	}
+
+}
+ class A extend Thread{
+	 
+	for(int i=0;i<10;1++) {
+		System.out.println(i);
+	}
+}
+class B implement Runntime{
+	for(int j=0;j<10;j++) {
+		
+	}
+	
+}

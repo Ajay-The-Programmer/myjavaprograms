@@ -1,0 +1,19 @@
+// pro5- Accept the names of three files and copy the contents of the first two to the third
+
+package ass2pro1;
+import java.io.Reader;
+import java.io.FileWriter;
+import java.io.IOException;
+public class MainFileDataCopy {
+	public static void main(String[] args) {
+	FileReader file1;
+	try{
+		file1=new FileReader("/home/ajaydevkar/FileHandling/Stud.txt");
+		
+		
+	}catch(Exception e) {
+		
+	}
+	
+
+}}
