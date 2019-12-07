@@ -1,0 +1,13 @@
+package ass1pro1;
+
+public class MainMultiOperations {
+
+	public static void main(String args[]) {
+		
+		int no = Integer.parseInt(args[0]);
+		
+		MultiOperations obj = new MultiOperations(no);
+
+	}
+
+}
