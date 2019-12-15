@@ -21,7 +21,7 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 		// 4.start the transaction.
 		Transaction txn = session.beginTransaction();
-		Date dateObject = new Date(2017, 01, 02);
+		Date dateObject = new Date(2017, 01, 02);//we are take Date object
 		// 4.perform your object.
 		Book book = new Book(6, "ORACLE", "Ajay", dateObject,550);
 
