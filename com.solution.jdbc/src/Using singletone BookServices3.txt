@@ -1,0 +1,265 @@
+package com.solution.app;
+
+import java.util.List;
+
+import com.solution.database.BookService;
+import com.solution.database.DataBaseConnection;
+import com.solution.model.Book;
+
+public class BookServiceClient {
+
+	public static void main(String[] args) {
+
+		// Singleton pattern
+
+		BookService bkClient = new BookService();
+
+		// Book by author name...... Book
+		Book bs = bkClient.getBookByAuthorName("'Kathy Sierra'");
+		System.out.println(bs);
+		System.out.println("\n\n");
+
+		
+		
+		// Book between price 300 and 500 List<Book>
+		List<Book> list = bkClient.getBookByGivenRange(300, 500);
+		for (Book book : list) {
+			System.out.println(book);
+		}
+		System.out.println("\n\n");
+
+		
+		
+		// Book by Descending price
+		list = bkClient.getBookOfMaxPrice();
+		for (Book book : list) {
+			System.out.println(book);
+		}
+		System.out.println("\n\n");
+
+		
+		
+		// Book by published date
+		list = bkClient.getBookBeforePublisheDate("2019-01-01");
+		for (Book book : list) {
+			System.out.println(book);
+		}
+
+		
+		// Close Database connection
+		DataBaseConnection.close();
+
+	}
+
+}
+------------------------------------------------------------------------------------------------------------------
+
+
+package com.solution.database;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.solution.model.Book;
+
+public class BookService {
+
+	public Book getBookByAuthorName(String authorName) {
+		Book book = null;
+		Connection conn = DataBaseConnection.getConnection();
+		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Book WHERE author=" + authorName);
+				ResultSet rs = ps.executeQuery();) {
+
+			while (rs.next()) {
+
+				book = (preparedStatement(rs));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return book;
+	}
+
+	private Book preparedStatement(ResultSet rs) throws SQLException {
+		return new Book(rs.getInt("id"), rs.getNString("name"), rs.getString("author"), rs.getDate("published"),rs.getFloat("price"));
+	}
+
+	public List<Book> getBookByGivenRange(int min, int max) {
+		List<Book> book = new ArrayList<Book>();
+		Connection conn = DataBaseConnection.getConnection();
+		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Book WHERE price BETWEEN " + min + " AND " + max);
+				ResultSet rs = ps.executeQuery();) {
+
+			while (rs.next()) {
+				book.add(preparedStatement(rs));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return book;
+	}
+
+	public List<Book> getBookOfMaxPrice() {
+		List<Book> book = new LinkedList<>();
+		Connection conn = DataBaseConnection.getConnection();
+		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Book ORDER BY price DESC");
+				ResultSet rs = ps.executeQuery();) {
+
+			/*
+			 * I use if condition bcz i only want to read one book which price is max so
+			 * i followed DESC query and then arranging book by price by Descending order and i want that
+			 * top Max price book.
+			 */ 
+			if (rs.next()) {
+
+				book.add(preparedStatement(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return book;
+	}
+
+	public List<Book> getBookBeforePublisheDate(String date1) {
+		List<Book> book = new LinkedList<Book>();
+		Connection conn = DataBaseConnection.getConnection();
+		try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM Book WHERE published <=" + "'" + date1 + "'");
+				ResultSet rs = ps.executeQuery();) {
+
+			while (rs.next()) {
+				book.add(preparedStatement(rs));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		return book;
+
+	}
+}
+
+--------------------------------------------------------------------------------------------------------
+
+package com.solution.database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DataBaseConnection {
+
+	private static Connection conn = null;
+
+	public static Connection getConnection() {
+
+		try {
+			if (conn == null) {
+
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobelit", "ajay", "ajay1312");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+
+	public static void close() {
+
+		try {
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+}
+
+-----------------------------------------------------------------------------------------------------------------
+
+package com.solution.model;
+
+import java.sql.Date;
+
+public class Book {
+	
+	private int id;
+	private String name;
+	private String author;
+	private Date published;
+	private float price;
+	
+	public Book(int id, String name, String author, Date published, float price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.author=author;
+		this.published = published;
+		this.price = price;
+	}
+	
+
+	public Book() {
+
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Date getPublished() {
+		return published;
+	}
+
+	public void setPublished(Date published) {
+		this.published = published;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", published=" + published + ", price="
+				+ price + "]";
+	}
+
+}

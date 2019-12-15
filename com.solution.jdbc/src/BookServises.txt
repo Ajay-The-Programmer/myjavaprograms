@@ -1,0 +1,250 @@
+package com.solution.app;
+
+import java.util.List;
+
+import com.solution.database.BookService;
+import com.solution.model.Book;
+
+public class BookServiceClient {
+
+	public static void main(String[] args) {
+
+		BookService bkClient = new BookService();
+
+		// Book by author name...... Book
+		Book bs = bkClient.getBookByAuthorName("'Kathy Sierra'");
+		System.out.println(bs);
+
+		
+		// Book between price 300 and 550 List<Book>
+		List<Book> list = bkClient.getBookBetweenPrice(300, 500);
+		for (Book book : list)
+			System.out.println(book);
+
+		
+		// Book by Max price
+		list = bkClient.getBookByMaxPrice();
+		for (Book book : list)
+			System.out.println(book);
+
+		
+		// Book by published date
+		list= bkClient.getPublishedBook("2019-01-01");
+		for (Book book : list) {
+			System.out.println(book);
+		}
+
+	}
+
+}
+-------------------------------------------------------------------------------------------------------
+package com.solution.database;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+import com.solution.model.Book;
+
+public class BookService {
+
+	public Book getBookByAuthorName(String authorName) {
+		Book book = null;
+		try (Connection conn = DataBaseConnection.connectionOfDB();
+				PreparedStatement ps = conn.prepareStatement("SELECT * FROM Book WHERE author=" + authorName);
+				ResultSet rs = ps.executeQuery();) {
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getNString("name");
+				String author = rs.getString("author");
+				Date published = rs.getDate("published");
+				float price = rs.getFloat("price");
+
+				book = new Book(id, name, author, published, price);
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return book;
+	}
+
+	public List<Book> getBookBetweenPrice(int min, int max) {
+		List<Book> book = new ArrayList<Book>();
+		try (Connection conn = DataBaseConnection.connectionOfDB();
+				PreparedStatement ps = conn
+						.prepareStatement("SELECT * FROM Book WHERE price BETWEEN " + min + " AND " + max);
+				ResultSet rs = ps.executeQuery();) {
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getNString("name");
+				String author = rs.getString("author");
+				Date published = rs.getDate("published");
+				float price = rs.getFloat("price");
+
+				book.add(new Book(id, name, author, published, price));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return book;
+	}
+
+	public List<Book> getBookByMaxPrice() {
+		List<Book> book = new LinkedList<>();
+		try (Connection conn = DataBaseConnection.connectionOfDB();
+				PreparedStatement ps = conn.prepareStatement("SELECT * FROM Book ORDER BY price DESC");
+				ResultSet rs = ps.executeQuery();) {
+			while (rs.next()) {
+
+				int id = rs.getInt("id");
+				String name = rs.getNString("name");
+				String author = rs.getString("author");
+				Date published = rs.getDate("published");
+				float price = rs.getFloat("price");
+
+				book.add(new Book(id, name, author, published, price));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return book;
+	}
+
+	public List<Book> getPublishedBook(String date1) {
+		List<Book> book = new LinkedList<Book>();
+		try (Connection conn = DataBaseConnection.connectionOfDB();
+				PreparedStatement ps = conn
+						.prepareStatement("SELECT * FROM Book WHERE published <=" + "'" + date1 + "'");
+				ResultSet rs = ps.executeQuery();) {
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getNString("name");
+				String author = rs.getString("author");
+				Date published = rs.getDate("published");
+				float price = rs.getFloat("price");
+
+				book.add(new Book(id, name, author, published, price));
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+		return book;
+
+	}
+}
+----------------------------------------------------------------------------------------------------
+package com.solution.database;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DataBaseConnection {
+
+	private static Connection conn = null;
+
+	public static Connection connectionOfDB() {
+
+		try {
+
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobelit", "ajay", "ajay1312");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
+	}
+}
+
+---------------------------------------------------------------------------------------------------------
+package com.solution.model;
+
+import java.sql.Date;
+
+public class Book {
+	
+	private int id;
+	private String name;
+	private String author;
+	private Date published;
+	private float price;
+	
+	public Book(int id, String name, String author, Date published, float price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.author=author;
+		this.published = published;
+		this.price = price;
+	}
+	
+
+	public Book() {
+
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Date getPublished() {
+		return published;
+	}
+
+	public void setPublished(Date published) {
+		this.published = published;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [id=" + id + ", name=" + name + ", author=" + author + ", published=" + published + ", price="
+				+ price + "]";
+	}
+	
+
+}
