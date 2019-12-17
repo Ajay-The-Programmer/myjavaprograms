@@ -1,6 +1,6 @@
 package org.nobelit.hiibernate.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +29,7 @@ public class Book {
 
 	@Column(name = "price")
 	private float bookPrice;
-
+	
 	public Book(String name, String authorName, Date publishedDate, float bookPrice) {
 		super();
 		this.name = name;
@@ -82,6 +82,12 @@ public class Book {
 
 	public void setBookPrice(float price) {
 		this.bookPrice = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Book [bookId=" + bookId + ", name=" + name + ", authorName=" + authorName + ", publishedDate="
+				+ publishedDate + ", bookPrice=" + bookPrice + "]";
 	}
 
 }

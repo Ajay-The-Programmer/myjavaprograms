@@ -11,7 +11,7 @@
 	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/ehcache-core-2.4.3.jar"/>
 	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/hibernate-commons-annotations-4.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/hibernate-core-4.1.3.Final.jar"/>
+	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/hibernate-core-4.1.3.Final.jar" sourcepath="/home/ajaydevkar/Setup/extract zip/src"/>
 	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/hibernate-ehcache-4.1.3.Final.jar"/>
 	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/hibernate-entitymanager-4.1.3.Final.jar"/>
 	<classpathentry kind="lib" path="/home/ajaydevkar/Setup/Hibernate/hibernate/Hibernate Material/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
