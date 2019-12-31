@@ -7,10 +7,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Book")
+
+@NamedQueries(value = { @NamedQuery(name = "getAllBooks", query = "from Book"),
+		@NamedQuery(name = "getBookInfo", query = "Select name , phone from Book"), })
+
+@NamedNativeQueries(value = { @NamedNativeQuery(name = " fetchAllBook", query = "select name,id from Book")
+
+})
+
 public class Book {
 
 	@Id
@@ -29,7 +41,7 @@ public class Book {
 
 	@Column(name = "price")
 	private float bookPrice;
-	
+
 	public Book(String name, String authorName, Date publishedDate, float bookPrice) {
 		super();
 		this.name = name;
@@ -66,12 +78,12 @@ public class Book {
 		this.authorName = authorName;
 	}
 
-	@Column(name = "published")
+	
 	public Date getPublishedDate() {
 		return publishedDate;
 	}
 
-	@Column(name = "published")
+	
 	public void setPublishedDate(Date publishedDate) {
 		this.publishedDate = publishedDate;
 	}

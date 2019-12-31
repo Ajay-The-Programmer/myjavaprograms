@@ -1,13 +1,7 @@
 package org.nobelit.hiibernate.Test;
 
-import java.util.List;
-
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.nobelit.hiibernate.model.Book;
-import org.nobelit.hiibernate.util.HibernateUtil;
+import org.nobelit.hiibernate.services.BookServices;
 
 public class HibernateTest {
 
@@ -17,29 +11,41 @@ public class HibernateTest {
 
 		// 3.open new session for any kind of operation with database.
 
-		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-
-		Session session = sessionFactory.openSession();
-
-		// 4.start the transaction.
+//		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//
+//		Session session = sessionFactory.openSession();
+//
+//		// 4.start the transaction.
+//		
+//		Transaction txt = session.beginTransaction();
+//		
+		BookServices service= new BookServices();
+		Book serv=service.getBookById(2);
+		System.out.println(serv);
 		
-		Transaction txn = session.beginTransaction();
+		
+		for(Book book : service.getAllBooks()) {
+			System.out.println(book);
+		}
+		
+		
+		Book book=service.getBookByName("SSJP");
+			System.out.println(book);
+		
+		
 		
 		// Select * from Book;
 		
-		
-		  Query query = session.createQuery("select OBJECT(b) from Book b");
-		  
-		  List<Book> book= (List<Book>) query.list();
-		  
-		  for(Book bk : book ) {
-		  
-		  System.out.println(bk);
-		  
-		  }
-		 
+			
+//		  Query query = session.createQuery("select OBJECT(b) from Book b");
+//		  List<Book> book= (List<Book>) query.list();
+//		  
+//		  for(Book bk : book ) {
+//		  
+//		  System.out.println(bk);
+//		  
+//		  }
 //		
-		
 //		  Date dateObject = new Date(2017,01, 02);//we are take Date object
 //		  
 //		  Date obj = new Date(2019 - 12 - 17);
@@ -52,7 +58,7 @@ public class HibernateTest {
 //		  
 //		  session.save(book);
 //		  
-//		  Book bk = (Book) session.get(Book.class, 1);
+//		  Book bk = (Book) session.get(Book.class, 3);
 //		  
 //		  System.out.println(bk);
 //		  
@@ -60,19 +66,20 @@ public class HibernateTest {
 //		  
 //		  // updating existing object or save new object
 //		  
-//		  session.saveOrUpdate(bk);
+////		  session.saveOrUpdate(bk);
 //		  
-//		  // session.delete(bk);
+//		  session.delete(bk);
 //		  
 //		  txn.commit();
-//		 
-//		System.out.println("Book object is saved:");
-
-		session.clear();
-
-		// most important step
-
-		sessionFactory.close();
+////		
+//		  System.out.println("Book object is saved:");
+//
+//		session.clear();
+//
+//		// most important step
+//
+//		sessionFactory.close();
+//		
 	}
-
 }
+
