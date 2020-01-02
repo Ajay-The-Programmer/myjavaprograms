@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,18 +26,7 @@ public class AuthenticateUserServlet extends HttpServlet {
 
 		PrintWriter out = response.getWriter();			
 
-		/*
-		 * if (uname.equals("ajay") && pwd.equals("ajay")) {
-		 * 
-		 * out.println("<h1>Login Success</h1>");
-		 * 
-		 * } else {
-		 * 
-		 * out.println("Login Failed."); response.sendRedirect("Index.html");
-		 * 
-		 * }
-		 */
-
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nobelit", "ajay", "ajay1324");
@@ -51,7 +39,6 @@ public class AuthenticateUserServlet extends HttpServlet {
 			ResultSet rs = ps.executeQuery();
 
 			if (rs.next()) {
-
 				response.sendRedirect("categories");
 
 			} else {
