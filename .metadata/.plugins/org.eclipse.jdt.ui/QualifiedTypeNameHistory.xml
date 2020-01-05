@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ass1pro1.MultiOperations"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
-<fullyQualifiedTypeName name="com.nobel.model2.Flat"/>
-<fullyQualifiedTypeName name="com.nobel.Flatservices.FlatCostCalculatorService"/>
-<fullyQualifiedTypeName name="java.lang.Comparable"/>
-<fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="java.util.Collections"/>
 <fullyQualifiedTypeName name="com.sun.jdi.connect.spi.Connection"/>
 <fullyQualifiedTypeName name="jdk.nashorn.internal.ir.ForNode"/>
 <fullyQualifiedTypeName name="java.sql.SQLClientInfoException"/>
@@ -58,6 +50,14 @@
 <fullyQualifiedTypeName name="javax.security.auth.login.Configuration"/>
 <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
 <fullyQualifiedTypeName name="org.hibernate.Query"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.nobel.oshop.model.Category"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.portable.ApplicationException"/>
+<fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+<fullyQualifiedTypeName name="com.nobel.model.Plane"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Package"/>
+<fullyQualifiedTypeName name="com.nobel.model.Passenger"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

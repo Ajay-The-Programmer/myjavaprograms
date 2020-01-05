@@ -39,5 +39,24 @@
 <entry path="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<libraryInfo home="/home/ajay/setup/jdk/jre" version="1.8.0_231">
+<bootpath>
+<entry path="/home/ajay/setup/jdk/jre/lib/resources.jar"/>
+<entry path="/home/ajay/setup/jdk/jre/lib/rt.jar"/>
+<entry path="/home/ajay/setup/jdk/jre/lib/sunrsasign.jar"/>
+<entry path="/home/ajay/setup/jdk/jre/lib/jsse.jar"/>
+<entry path="/home/ajay/setup/jdk/jre/lib/jce.jar"/>
+<entry path="/home/ajay/setup/jdk/jre/lib/charsets.jar"/>
+<entry path="/home/ajay/setup/jdk/jre/lib/jfr.jar"/>
+<entry path="/home/ajay/setup/jdk/jre/classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="/home/ajay/setup/jdk/jre/lib/ext"/>
+<entry path="/usr/java/packages/lib/ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="/home/ajay/setup/jdk/jre/lib/endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 <libraryInfo home="/usr/lib/jvm/java-11-openjdk-amd64" version="11.0.5"/>
 </libraryInfos>

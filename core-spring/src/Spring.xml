@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="jetEngine" class="com.nobel.model.JetEngine">
+		<property name="fuel" value="HP"></property>
+
+	</bean>
+	<bean id="p1" class="com.nobel.model.Passenger" >
+	
+		<property name="name" value="ajay" ></property>
+		<property name= "number" value="7798325001"></property>
+	
+	</bean>
+		<bean id="p2" class="com.nobel.model.Passenger" >
+	
+		<property name="name" value="ajay" ></property>
+		<property name= "number" value="7798325001"></property>
+	
+	</bean>
+	
+	
+	<bean id="plane" class="com.nobel.model.JetPlane">
+
+		<property name="engine" ref="jetEngine"></property>
+		<property name="passenger">
+		
+		<list> 
+				<ref bean="p1"/>
+				<ref bean="p2"/>
+		</list>
+		</property>
+
+	</bean>
+
+</beans>
+	
+	
