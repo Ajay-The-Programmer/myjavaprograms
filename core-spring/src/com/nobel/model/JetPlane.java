@@ -1,31 +1,38 @@
 package com.nobel.model;
 
-import java.util.List;
-
 public class JetPlane  implements Plane{
 	
 	
 	public Engine engine;
 	
-	List<Passenger> passenger;
-	
+	/*
+	 * List<Passenger> passenger;
+	 * 
+	 * 
+	 * public List<Passenger> getPassenger() {
+	 * 
+	 * return passenger;
+	 * 
+	 * }
+	 * 
+	 * 
+	 * public void setPassenger(List<Passenger> passenger) { this.passenger =
+	 * passenger; }
+	 * 
+	 */
 
-	public List<Passenger> getPassenger() {
 	
-		return passenger;
-	
+	public void setupInstructions() {
+		System.out.println("Set Up Instructions............");
 	}
-
-
-	public void setPassenger(List<Passenger> passenger) {
-		this.passenger = passenger;
-	}
-
-
+	
+	
 
 
 	public JetPlane() {
+		super();
 	}
+
 
 
 	public Engine getEngine() {
@@ -41,7 +48,6 @@ public class JetPlane  implements Plane{
 	@Override
 	public void fly() {
 		
-		System.out.println("Passenger is:-" +passenger);
 		
 		engine.engineStart();
 		
@@ -63,8 +69,11 @@ public class JetPlane  implements Plane{
 
 	@Override
 	public String toString() {
-		return "JetPlane [engine=" + engine + ", passenger=" + passenger + "]";
+		return "JetPlane [engine=" + engine + "]";
 	}
 	
+	public void removeAllSeatBelts() {
+		System.out.println("removed seat belt");
+	}
 	
 }

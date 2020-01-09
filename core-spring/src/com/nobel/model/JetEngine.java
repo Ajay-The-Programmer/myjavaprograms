@@ -11,6 +11,12 @@ public class JetEngine implements Engine {
 	public void setFuel(String fuel) {
 		this.fuel = fuel;
 	}
+	
+	
+
+	public JetEngine() {
+		super();
+	}
 
 	@Override
 	public void engineStart() {
