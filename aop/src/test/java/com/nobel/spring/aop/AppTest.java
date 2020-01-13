@@ -1,4 +1,4 @@
-package com.nobel.maventest;
+package com.nobel.spring.aop;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
