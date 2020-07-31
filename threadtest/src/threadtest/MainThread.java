@@ -5,12 +5,12 @@ public class MainThread {
 	public static void main(String[] args) throws InterruptedException {
 		
 	CustomThread customThread=new CustomThread();
-	MainThread mainThread=new MainThread();
 	customThread.start();
-			System.out.println("Main Thread Start");
-		for(int i=1;i<100;i++) {
-		
 			
+		System.out.println("Main Thread Start");
+	for(int i=1;i<100;i++) {
+			
+		Thread.sleep(1000);
 			System.out.println("Main Value"+i);
 			
 			
