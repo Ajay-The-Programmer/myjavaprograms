@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="lombok.ToString"/>
-<fullyQualifiedTypeName name="java.lang.Override"/>
-<fullyQualifiedTypeName name="org.springframework.data.annotation.CreatedDate"/>
-<fullyQualifiedTypeName name="java.util.Date"/>
-<fullyQualifiedTypeName name="springfox.documentation.swagger2.annotations.EnableSwagger2"/>
-<fullyQualifiedTypeName name="javax.persistence.Table"/>
-<fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
-<fullyQualifiedTypeName name="javax.persistence.Entity"/>
-<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="net.bytebuddy.dynamic.loading.ClassReloadingStrategy.Strategy"/>
 <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
 <fullyQualifiedTypeName name="javax.persistence.Id"/>
@@ -60,4 +51,13 @@
 <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+<fullyQualifiedTypeName name="threadtest.MainThread"/>
+<fullyQualifiedTypeName name="threadtest.CustomThread"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="threadtest.CustomThread2"/>
+<fullyQualifiedTypeName name="threads.DaemonThread"/>
+<fullyQualifiedTypeName name="java.lang.Runnable"/>
+<fullyQualifiedTypeName name="nonstaticclass.Outer.Inner"/>
+<fullyQualifiedTypeName name="nonstaticclass.Outer"/>
+<fullyQualifiedTypeName name="staticinnerclass.Outer.Inner"/>
 </qualifiedTypeNameHistroy>
