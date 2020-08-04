@@ -6,7 +6,7 @@ public class Outer {
 
 		System.out.println("Block........");
 
-		class localinner {
+		class LocalInner {
 
 			void fun() {
 
@@ -15,22 +15,37 @@ public class Outer {
 			}
 
 		}
-		new localinner().fun();
-		
+		new LocalInner().fun();
+
 	}
 
-	 public Outer(){
-			
-		 System.out.println("Class inside the Constructor");
-			
+	Outer() {
+
+		System.out.println("Class inside the Constructor");
+		class LocalInner {
+
+			public void fun() {
+				System.out.println("Class inside Function");
+				
+				class InnerInner{
+					
+					void fun() {
+						System.out.println("insiide function.....");
+					}
+					
+				}
+			}
+
 		}
-	 
+		new LocalInner().fun();
+
+	}
+
 	public static void main(String[] args) {
 
 		System.out.println("Main Block............");
 		new Outer();
-		
-	}
 
+	}
 
 }
