@@ -1,18 +1,2 @@
 INDEX VERSION 1.131+/home/ajay/myjavaprograms/.metadata/.plugins/org.eclipse.jdt.core
-3793900209.index
-14517920.index
-104823894.index
-2923252837.index
-3260403266.index
-2490851010.index
-3252255046.index
-1434931470.index
-1138008935.index
-399095624.index
-2813561470.index
-3599184955.index
-1898563144.index
-3819479923.index
-344298796.index
-2594272686.index
-1288329603.index
+4071352734.index
