@@ -21,32 +21,26 @@ class MyFrame extends JFrame {
 
 		b1 = new JButton("Login");
 		b1.setBounds(50, 100, 150, 40);
-		b1.addActionListener(new LoginAction());
+		b1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+
+				System.out.println("Login Success");
+
+			}
+		});
 		this.add(b1);
 
 		b2 = new JButton("Exit");
 		b2.setBounds(200, 100, 150, 40);
-		b2.addActionListener(new ExitAction());
+		b2.addActionListener(new ActionListener() {
+
+					public void actionPerformed(ActionEvent ae){
+						System.out.println("Existing........");
+						System.exit(1);
+					}
+
+		});
 		this.add(b2);
-	}
-
-}
-
-class LoginAction implements ActionListener {
-
-	public void actionPerformed(ActionEvent ae) {
-
-		System.out.println("Login Success");
-
-	}
-
-}
-
-class ExitAction implements ActionListener {
-
-	public void actionPerformed(ActionEvent ae) {
-		System.out.println("Existing........");
-		System.exit(1);
 	}
 
 }
