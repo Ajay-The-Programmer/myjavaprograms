@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+
 class MyFrame extends JFrame {
 
 	static JButton b1, b2;
@@ -34,10 +35,10 @@ class MyFrame extends JFrame {
 		b2.setBounds(200, 100, 150, 40);
 		b2.addActionListener(new ActionListener() {
 
-					public void actionPerformed(ActionEvent ae){
-						System.out.println("Existing........");
-						System.exit(1);
-					}
+			public void actionPerformed(ActionEvent ae) {
+				System.out.println("Existing........");
+				System.exit(1);
+			}
 
 		});
 		this.add(b2);

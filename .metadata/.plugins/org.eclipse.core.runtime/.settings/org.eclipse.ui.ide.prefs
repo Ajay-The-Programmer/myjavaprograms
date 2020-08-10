@@ -2,6 +2,6 @@ CLOSE_UNRELATED_PROJECTS=true
 PROBLEMS_FILTERS_MIGRATE=true
 SWITCH_PERSPECTIVE_ON_PROJECT_CREATION=always
 eclipse.preferences.version=1
-platformState=1577683625424
+platformState=1577683625586
 quickStart=false
 tipsAndTricks=true

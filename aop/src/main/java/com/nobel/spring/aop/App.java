@@ -5,10 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.nobel.spring.aop.service.AccountService;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
