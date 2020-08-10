@@ -1,29 +1,29 @@
 package com.nobelit.filehandling.handling;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileHandling {
 
 	public static void main(String[] args) throws IOException {
-		FileInputStream obj = null;
+		FileInputStream src = null;
+		FileOutputStream dest = null;
 
 		try {
-			obj = new FileInputStream(
-					"/home/ajay/myjavaprograms/com.nobelit.filehandling/src/com/nobelit/filehandling/handling/FileHandling.java");
+			src = new FileInputStream("/home/ajay/Dennis_Ritchie_2011.jpg");
+			dest = new FileOutputStream("/home/ajay/image.jpg");
 			System.out.println("FIle Opened");
-			
 			int x;
-			while ((x=obj.read())!=-1) {
+			while ((x = src.read()) != -1) {
 
-				System.out.print((char)x);
-
+				dest.write(x);
 			}
 
 		} finally {
 
-			if (obj != null) {
-				obj.close();
+			if (src != null) {
+				src.close();
 				System.out.println("FileClose");
 			}
 

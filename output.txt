@@ -1,0 +1,105 @@
+package com.nobelit.filehandling.handling;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.FileOutputStream;
+
+public class FileHandling {
+
+	public static void main(String[] args) throws IOException {
+		FileInputStream src = null;
+		FileOutputStream dest = null;
+
+		try {
+			src = new FileInputStream(
+					"/home/ajay/myjavaprograms/com.nobelit.filehandling/src/com/nobelit/filehandling/handling/FileHandling.java");
+			dest = new FileOutputStream("/home/ajay/myjavaprograms/output.txt");
+			System.out.println("FIle Opened");
+			int x;
+			while ((x = src.read()) != -1) {
+
+				dest.write(x);
+			}
+
+		} finally {
+
+			if (src != null) {
+				src.close();
+				System.out.println("FileClose");
+			}
+
+		}
+
+	}
+
+}
+package com.nobelit.filehandling.handling;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.FileOutputStream;
+
+public class FileHandling {
+
+	public static void main(String[] args) throws IOException {
+		FileInputStream src = null;
+		FileOutputStream dest = null;
+
+		try {
+			src = new FileInputStream(
+					"/home/ajay/myjavaprograms/com.nobelit.filehandling/src/com/nobelit/filehandling/handling/FileHandling.java");
+			dest = new FileOutputStream("/home/ajay/myjavaprograms/output.txt",true);
+			System.out.println("FIle Opened");
+			int x;
+			while ((x = src.read()) != -1) {
+
+				dest.write(x);
+			}
+
+		} finally {
+
+			if (src != null) {
+				src.close();
+				System.out.println("FileClose");
+			}
+
+		}
+
+	}
+
+}
+package com.nobelit.filehandling.handling;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.FileOutputStream;
+
+public class FileHandling {
+
+	public static void main(String[] args) throws IOException {
+		FileInputStream src = null;
+		FileOutputStream dest = null;
+
+		try {
+			src = new FileInputStream(
+					"/home/ajay/myjavaprograms/com.nobelit.filehandling/src/com/nobelit/filehandling/handling/FileHandling.java");
+			dest = new FileOutputStream("/home/ajay/myjavaprograms/output.txt",true);
+			System.out.println("FIle Opened");
+			int x;
+			while ((x = src.read()) != -1) {
+
+				dest.write(x);
+			}
+
+		} finally {
+
+			if (src != null) {
+				src.close();
+				System.out.println("FileClose");
+			}
+
+		}
+
+	}
+
+}
